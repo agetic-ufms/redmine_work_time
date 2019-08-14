@@ -1,3 +1,3 @@
-= work_time
+= redmine_work_time_activity_tooltip
 
 Description goes here

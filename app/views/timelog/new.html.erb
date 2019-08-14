@@ -1,0 +1,46 @@
+<%= javascript_include_tag "positionButton.js", :plugin => 'redmine_work_time_activity_tooltip'  %>
+<%= javascript_include_tag "jquery-ui.js", :plugin => 'redmine_work_time_activity_tooltip'  %>
+<%= stylesheet_link_tag "jquery-ui.css", :plugin => 'redmine_work_time_activity_tooltip'  %>
+
+<h2><%= l(:label_spent_time) %></h2>
+
+<%= labelled_form_for @time_entry, :url => time_entries_path do |f| %>
+  <%= hidden_field_tag 'project_id', params[:project_id] if params[:project_id] %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all">Ajuda</a></p>
+  <%= submit_tag l(:button_create) %>
+  <%= submit_tag l(:button_create_and_continue), :name => 'continue' %>
+<% end %>
+
+<div id="dialog" title="Descrição das Atividades">
+	<p> 
+		<strong>Codificação:</strong> Desenvolvimento, Estudo e Pesquisa, SQL, Alteração de informação no banco, Relatório Manual SQL.
+	</p>
+	<p>
+		<strong>Configuração:</strong> Configuração de ambiente, Configuração de IDEs, Configuração de servidor.
+	</p>
+	<p>
+		<strong>Análise:</strong> Reuniões (exceto reuniões diárias), Estudo e Pesquisa, Criação e Atualização dos Requisitos, Contato com cliente, Caso de uso, Mockup, Modelagem, Registro dos requisitos, Estimativas.
+	</p>
+	<p>
+		<strong>Teste:</strong> Codificação de teste unitário, Criação de Plano de Teste, Execução de Teste.
+	</p>
+	<p>
+		<strong>Gerenciamento:</strong> Reuniões Diárias, Criação e Atualização do Cronograma, Criação e Atualização da Visão do Produto, Criação e Atualização do Plano de Projeto, Criação e Atualização do Termo de Aceite, Criação e Atualização da Planilha de Riscos.
+	</p>
+	<p>
+		<strong>Documentação:</strong> Manual, Ajuda Online, Tutoriais.
+	</p>
+	<p>
+		<strong>Treinamento:</strong> Treinamento do Processo, Treinamento em Sala de Aula, Treinamento no Local de Trabalho do Cliente, Treinamento Via Telefone.
+	</p>
+	<p>
+		<strong>Ajuda ao Usuário:</strong> Qualquer suporte solicitado pelo usuário.
+	</p>
+	<p>
+		<strong>Mentoria:</strong> Ajuda de um membro do time ao colega, Ajuda da Seção de Apoio na Realização de Atividades do Processo.
+	</p>
+	<p>
+		<strong>Auditoria:</strong> Uso exclusivo da seção de apoio.
+	</p>	
+</div>
